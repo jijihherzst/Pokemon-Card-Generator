@@ -8,14 +8,36 @@
     <title>PoKeList</title>
   </head>
   <body>
-    <div class="card-container">
-      <div class="card">
+    <main class="card-container">
+      <h1>Pokemon Card Generator</h1>
+      <input
+        type="text"
+        placeholder="Input pokemon name... "
+        id="pokemon-name"
+      />
+      <input type="button" value="Generate" id="gen-btn" />
+      <!-- <input type="button" value="Save" id="save" /> -->
+      <p id="warning"></p>
+      <section class="card" id="card">
         <div class="front"></div>
-        <div class="back">
-          <h2>Back</h2>
-        </div>
-      </div>
-    </div>
+        <div class="back">dd</div>
+      </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
+    <script>
+      document.getElementById('save').addEventListener('click', function () {
+        const card = document.getElementById('card');
+
+        html2canvas(card).then(function (canvas) {
+          const dataUrl = canvas.toDataURL('image/png');
+
+          const link = document.createElement('a');
+          link.href = dataUrl;
+          link.download = 'card-image.png'; // You can set the file name here
+          link.click();
+        });
+      });
+    </script>
   </body>
 </html>
