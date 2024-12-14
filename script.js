@@ -72,20 +72,26 @@ async function fetchData(pokemonName) {
       root.style.setProperty('--text-color', 'gold');
     }
 
-    const icon = pokeType + '.png';
+    let imgs = '';
+    for (let i = 0; i < pokemon.types.length; i++) {
+      const pokeType = pokemon.types[i].type.name;
+      imgs += `<img  src= "public/types/${pokeType}.png"/>`;
+    }
     let evolveFrom;
     if (isPropertyNotEmpty(species.evolves_from_species, 'name')) {
-      evolveFrom = species.evolves_from_species.name;
+      evolveFrom = `Evolves from ${capitalizeFirst(
+        species.evolves_from_species.name
+      )}`;
     } else {
-      evolveFrom = 'nothing';
+      evolveFrom = '';
     }
     front.innerHTML = `
-    <p class="evolves-from">Evolves from ${capitalizeFirst(evolveFrom)}</p>
+    <p class="evolves-from">${capitalizeFirst(evolveFrom)}</p>
           <div class="name">
             <h2 class="pokemon-name">${capitalizeFirst(pokemon.name)}</h2>
             <h2 class="pokemon-hp">
               ${pokemon.stats[0].base_stat} HP
-              <img class="type-icon" src="public/types/${icon}" alt="type" />
+             ${imgs}
             </h2>
           </div>
           <div class="pokemon-img">
