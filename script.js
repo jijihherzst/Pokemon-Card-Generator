@@ -33,6 +33,7 @@ async function fetchData(pokemonName) {
         '--background',
         'linear-gradient(to bottom, yellow,rgb(255, 247, 180))'
       );
+      root.style.setProperty('--text-color', 'red');
     } else if (pokeType === 'fighting') {
       root.style.setProperty(
         '--background',
@@ -63,6 +64,12 @@ async function fetchData(pokemonName) {
         '--background',
         'linear-gradient(to bottom, #7F7C82,rgb(207, 207, 207))'
       );
+    } else if (pokeType === 'fire') {
+      root.style.setProperty(
+        '--background',
+        'linear-gradient(0deg,rgba(195, 63, 34, 1) 0%,   rgba(200, 80, 35, 1) 8%,    rgba(205, 73, 36, 1) 32%, rgba(232, 108, 47, 1) 53%,    rgba(255, 132, 0, 1) 100%)'
+      );
+      root.style.setProperty('--text-color', 'gold');
     }
 
     const icon = pokeType + '.png';
@@ -112,6 +119,7 @@ pokemonName.addEventListener('keydown', () => {
     }
   }
 });
+fetchData('charizard');
 generate.addEventListener('click', () => {
   if (pokemonName.value) {
     fetchData(pokemonName.value.toLowerCase());

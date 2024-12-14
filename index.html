@@ -8,16 +8,24 @@
     <title>PoKeList</title>
   </head>
   <body>
-    <main class="card-container">
-      <h1>Pokemon Card Generator</h1>
-      <input
-        type="text"
-        placeholder="Input pokemon name... "
-        id="pokemon-name"
-      />
-      <input type="button" value="Generate" id="gen-btn" />
-      <!-- <input type="button" value="Save" id="save" /> -->
+    <header>
+      <div class="logo">
+        <img src="public/types/logo.png" alt="" />
+        <h1>PokeList</h1>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Input pokemon name... "
+          id="pokemon-name"
+        />
+        <input type="button" value="Generate" id="gen-btn" />
+        <!-- <input type="button" value="Save" id="save" /> -->
+      </div>
       <p id="warning"></p>
+    </header>
+    <main class="card-container">
       <section class="card" id="card">
         <div class="front"></div>
         <div class="back">dd</div>
@@ -25,7 +33,7 @@
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
-    <script>
+    <!-- <script>
       document.getElementById('save').addEventListener('click', function () {
         const card = document.getElementById('card');
 
@@ -38,6 +46,6 @@
           link.click();
         });
       });
-    </script>
+    </script> -->
   </body>
 </html>
